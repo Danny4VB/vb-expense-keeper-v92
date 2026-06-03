@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <application android:theme="@style/AppTheme" android:label="VB Expense Keeper" android:allowBackup="true" android:usesCleartextTraffic="true" android:resizeableActivity="true" android:icon="@drawable/vb_logo">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.virtualbeehive.expensekeeper.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+        </provider>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
